@@ -12,8 +12,7 @@ class CommentForm extends Component {
         const comment = {
             name: this.nameRef.current.value,
             email: this.emailRef.current.value,
-            body: this.contentRef.current.value,
-            postId: this.props.postId
+            body: this.contentRef.current.value 
         }
  
         this.props.createComment(comment);

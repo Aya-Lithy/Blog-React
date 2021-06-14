@@ -133,8 +133,8 @@ class Router extends Component {
                     )
  
                     let commentId = {id: res.data.id};
-                    const newComment = Object.assign({}, res.data.comment, commentId, res.data.postId)
-                    console.log(newComment);
+                    const newComment = Object.assign({}, res.data.comment, commentId)
+                    //console.log(newComment);
                     this.setState(prevState => ({
                         comments: [...prevState.comments, newComment]
                     }))
