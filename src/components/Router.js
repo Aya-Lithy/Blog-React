@@ -11,8 +11,8 @@ import Form from './Form';
 import EditPost from './EditPost';
 
 import Comments from './Comments';
-import SingleComment from './SingleComment';
 import CommentForm from './CommentForm';
+import EditComment from './EditComment';
  
 class Router extends Component {
     state = {  
@@ -161,16 +161,27 @@ class Router extends Component {
                         'The changes were saved correctly.',
                         'success'
                     )
- 
-                    let commentId = res.data.id;
+                    
+                    const currentPath = window.location.pathname;
+                    //console.log(currentPath);
+                    const path = '/editcomment/' + res.data.id;
+                    const postPart = currentPath.replace(path, '');
+                    const path2 = '/post/';
+                    const currentPost = postPart.replace(path2, '');
+                    console.log(currentPost);
+
+                    let commentId = {
+                        id: res.data.id,
+                        postId: Number(currentPost)   
+                    };
  
 					const comments = [...this.state.comments];
  
-                    const commentEdit = comments.findIndex(comment => commentId === comment.id)
+                    const commentEdit = comments.findIndex(comment => commentId.id === comment.id)
  
                     comments[commentEdit] = commentUpdate;
                     this.setState({
-                         
+                        comments
                     })
                  }
              })
@@ -237,8 +248,8 @@ class Router extends Component {
                                 );
                             }}
                             />
-                            <Route exact path="/edit/:postId" render={ (props) => {
-                                let idPost = props.location.pathname.replace('/edit/', '')
+                            <Route exact path="/editpost/:postId" render={ (props) => {
+                                let idPost = props.location.pathname.replace('/editpost/', '')
                                 const posts=this.state.posts;
                                 let filter;
                                 filter = posts.filter(post => (
@@ -248,6 +259,29 @@ class Router extends Component {
                                     <EditPost
                                         post={filter[0]} 
                                         editPost={this.editPost}
+                                    />
+                                )
+                            }} />    
+                            <Route exact path="/post/:postId/editcomment/:commentId" render={ (props) => {
+                                let path = props.location.pathname;
+                                //console.log(path);
+                                var idPost = path.substring(
+                                    path.indexOf("/post/") + 6, 
+                                    path.indexOf("/editcomment")
+                                );
+                                //console.log(idPost);
+                                const totalPath = "/post/" + idPost + '/editcomment/';
+                                let idComment = props.location.pathname.replace(totalPath, '')
+
+                                const comments=this.state.comments;
+                                let filter;
+                                filter = comments.filter(comment => (
+                                    comment.id === Number(idComment)
+                                ))                                
+                                return(
+                                    <EditComment
+                                        comment={filter[0]} 
+                                        editComment={this.editComment}
                                     />
                                 )
                             }} />                            

@@ -33,7 +33,7 @@ class Comment extends Component {
  
  
     render() {
-        const {name, body, datestamp} = this.props.info;
+        const {id, postId, name, body, datestamp} = this.props.info;
  
         return ( 
             <Paper className="comment">
@@ -51,6 +51,7 @@ class Comment extends Component {
                 <p className="post_datestamp"><b>{moment(datestamp).fromNow()}</b></p>                
                     <div className="post_button">
                         <ul className="buttons">
+                            <li><Link to={`/post/${postId}/editcomment/${id}`} className="btn btn-warning">Edit</Link></li>
                             <li><Link onClick={this.confirmDeletion} className="btn btn-danger">Delete</Link></li>
                         </ul>
                     </div>                   

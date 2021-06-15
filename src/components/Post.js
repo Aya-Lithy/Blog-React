@@ -55,7 +55,7 @@ class Post extends Component {
                     <div className="post_button">
                         <ul className="buttons">
                             <li><Link to={`/post/${id}`} className="btn btn-primary"> Show </Link></li>
-                            <li><Link to={`/edit/${id}`} className="btn btn-warning"> Edit </Link></li>
+                            <li><Link to={`/editpost/${id}`} className="btn btn-warning"> Edit </Link></li>
                             <li><Link onClick={this.confirmDeletion} className="btn btn-danger">Delete</Link></li>
                         </ul>
                     </div>                   

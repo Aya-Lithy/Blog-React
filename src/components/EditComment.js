@@ -12,7 +12,7 @@ class EditComment extends Component {
             email: this.emailRef.current.value,
             body: this.contentRef.current.value,
             id: this.props.comment.id,
-            postId: this.props.post.id 
+            postId: this.props.comment.postId
         }
         this.props.editComment(comment);
     }
