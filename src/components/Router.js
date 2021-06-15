@@ -131,8 +131,16 @@ class Router extends Component {
                         'It is created correctly.',
                         'success'
                     )
- 
-                    let commentId = {id: res.data.id};
+                    const currentPath = window.location.pathname;
+                    //console.log(currentPath);
+                    const path = '/post/';
+                    const currentPost = currentPath.replace(path, '');
+                    //console.log(currentPost);
+
+                    let commentId = {
+                        id: res.data.id,
+                        postId: Number(currentPost)   
+                    };
                     const newComment = Object.assign({}, res.data.comment, commentId)
                     //console.log(newComment);
                     this.setState(prevState => ({

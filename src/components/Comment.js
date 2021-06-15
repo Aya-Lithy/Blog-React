@@ -33,7 +33,7 @@ class Comment extends Component {
  
  
     render() {
-        const {id, postId, name, email, body, datestamp} = this.props.info;
+        const {name, body, datestamp} = this.props.info;
  
         return ( 
             <Paper className="comment">

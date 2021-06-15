@@ -8,11 +8,11 @@ class CommentForm extends Component {
  
     createComment = (e) => {
         e.preventDefault();
- 
+
         const comment = {
             name: this.nameRef.current.value,
             email: this.emailRef.current.value,
-            body: this.contentRef.current.value 
+            body: this.contentRef.current.value,
         }
  
         this.props.createComment(comment);
