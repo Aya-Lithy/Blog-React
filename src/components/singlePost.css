@@ -6,7 +6,8 @@
   padding: 0;
 }
 body {
-  font-family: "Lato", "Lucida Grande","Lucida Sans Unicode", Tahoma, Sans-Serif;
+  font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma,
+    Sans-Serif;
   line-height: 1.5;
   color: white;
   background: #444;
@@ -25,11 +26,11 @@ body {
 }
 
 .comment-list li {
-    margin: 0 0 20px 0;
-    background: #333;
-    padding: 20px;
-  }
-  
+  margin: 0 0 20px 0;
+  background: #333;
+  padding: 20px;
+}
+
 .comment-user {
   display: flex;
   align-items: center;
@@ -56,24 +57,24 @@ body {
 }
 
 .comment-text:last-child {
-    margin: 0;
-  }
+  margin: 0;
+}
 
-.edit-comment{
+.edit-comment {
   display: list-item;
 }
 
-.edit-btn{
-  margin-left:7px;
+.edit-btn {
+  margin-left: 7px;
   margin-right: 14px;
 }
-  
+
 .edit-btn:hover {
-    color: #1468a0;
-    cursor: pointer;
-  }
+  color: #1468a0;
+  cursor: pointer;
+}
 
 .del-btn:hover {
-    color: #ef4135;
-    cursor: pointer;
-  }
+  color: #ef4135;
+  cursor: pointer;
+}
